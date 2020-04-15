@@ -1,0 +1,7 @@
+E:\Projects\Temperature Conventer\Temperature Conventer\bin\Debug\Temperature Conventer.exe.config
+E:\Projects\Temperature Conventer\Temperature Conventer\bin\Debug\Temperature Conventer.exe
+E:\Projects\Temperature Conventer\Temperature Conventer\bin\Debug\Temperature Conventer.pdb
+E:\Projects\Temperature Conventer\Temperature Conventer\obj\Debug\Temperature Conventer.csprojAssemblyReference.cache
+E:\Projects\Temperature Conventer\Temperature Conventer\obj\Debug\Temperature Conventer.csproj.CoreCompileInputs.cache
+E:\Projects\Temperature Conventer\Temperature Conventer\obj\Debug\Temperature Conventer.exe
+E:\Projects\Temperature Conventer\Temperature Conventer\obj\Debug\Temperature Conventer.pdb
