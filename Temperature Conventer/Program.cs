@@ -5,15 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace Temperature_Conventer
+namespace Temperature_Converter
 {
     class Program
-    {
+    {   
         static void Main(string[] args)
         {
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.Clear();
-            Start:
+            Alerts welcome = new Alerts();
+            welcome.Welcome();
+            Start:           
             Engine engine = new Engine();
             engine.Menu();
             engine.Mechanics();            
@@ -21,3 +23,4 @@ namespace Temperature_Conventer
         }
     }
 }
+//ustawić poliformiz na TempConv        

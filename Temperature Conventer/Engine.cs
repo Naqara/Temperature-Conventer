@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace Temperature_Conventer
+namespace Temperature_Converter
 {
     class Engine
-    {
-
-        public void Mechanics()
+    {      
+        public void Mechanics() 
         {
+            
+
             TempConv tempConv = new TempConv();
             Alerts alerts = new Alerts();
             while (true)
@@ -21,8 +22,7 @@ namespace Temperature_Conventer
                 string reply = Console.ReadLine();
                 Console.WriteLine();
                 if (reply == "1")
-                {
-
+                {                    
                     tempConv.CelToFar();
                     break;
                 }
@@ -158,14 +158,17 @@ namespace Temperature_Conventer
                 else alerts.Alert1();
             }
         }
-        public void Menulist(List<string> menulist)
-        {
-            menulist[0] = "What action do you want to perform? ";
-            menulist[1] = " [1] Celsius to Fahrenheit";
-            menulist[2] = " [2] Celsius to Kelvin";
-            menulist[3] = " [3] Celsius to Rankine";
-        }
-        public void Menu(/*string[] list*/)
+
+        //public void Menulist(string[] list) KONCEPCJA DO POPRAWY
+        //{
+        //    string[] menulist = new string[4];
+        //    menulist[0] = "What action do you want to perform? ";
+        //    menulist[1] = " [1] Celsius to Fahrenheit";
+        //    menulist[2] = " [2] Celsius to Kelvin";
+        //    menulist[3] = " [3] Celsius to Rankine";
+            
+        //}
+        public void Menu()
         {
             Console.ForegroundColor = ConsoleColor.Blue;
             List<string> menulist = new List<string>();

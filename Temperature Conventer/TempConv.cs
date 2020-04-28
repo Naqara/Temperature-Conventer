@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace Temperature_Conventer
+namespace Temperature_Converter
 {
     class TempConv : Engine
 

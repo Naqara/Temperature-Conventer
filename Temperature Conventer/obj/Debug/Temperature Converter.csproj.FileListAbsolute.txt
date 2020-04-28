@@ -1,0 +1,7 @@
+E:\Projects\Temperature Converter\Temperature Conventer\bin\Debug\Temperature Converter.exe.config
+E:\Projects\Temperature Converter\Temperature Conventer\bin\Debug\Temperature Converter.exe
+E:\Projects\Temperature Converter\Temperature Conventer\bin\Debug\Temperature Converter.pdb
+E:\Projects\Temperature Converter\Temperature Conventer\obj\Debug\Temperature Converter.csprojAssemblyReference.cache
+E:\Projects\Temperature Converter\Temperature Conventer\obj\Debug\Temperature Converter.csproj.CoreCompileInputs.cache
+E:\Projects\Temperature Converter\Temperature Conventer\obj\Debug\Temperature Converter.exe
+E:\Projects\Temperature Converter\Temperature Conventer\obj\Debug\Temperature Converter.pdb
