@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Alerts.cs" />
     <Compile Include="Engine.cs" />
+    <Compile Include="Logo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TempConv.cs" />
@@ -83,7 +84,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Flat-Icons.com-Square-Temperature.ico" />
     <Content Include="Temperature.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

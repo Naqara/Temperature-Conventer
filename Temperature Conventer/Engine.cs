@@ -4,171 +4,88 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Threading;
 
 namespace Temperature_Converter
 {
     class Engine
-    {      
-        public void Mechanics() 
+    {
+        public static int a = 0, b = 0;
+        public string reply { get; set; }
+        public void Start()
         {
-            
-
-            TempConv tempConv = new TempConv();
-            Alerts alerts = new Alerts();
             while (true)
             {
-                Console.Write("Your menu choise: ");
-                Console.WriteLine();
-                string reply = Console.ReadLine();
-                Console.WriteLine();
-                if (reply == "1")
-                {                    
-                    tempConv.CelToFar();
-                    break;
-                }
-                else if (reply == "2")
-                {
-                    tempConv.CelToKel();
-                    break;
-                }
-                else if (reply == "3")
-                {
-                    tempConv.CelToRan();
-                    break;
-                }
-                else if (reply == "4")
-                {
-                    tempConv.CelToRea();
-                    break;
-                }
-                else if (reply == "5")
-                {
-                    tempConv.CelToRom();
-                    break;
-                }
-                else if (reply == "6")
-                {
-                    tempConv.CelToDel();
-                    break;
-                }
-                else if (reply == "7")
-                {
-                    tempConv.CelToNewt();
-                    break;
-                }
-                else if (reply == "8")
-                {
-                    tempConv.FarToCel();
-                    break;
-                }
-                else if (reply == "9")
-                {
-                    tempConv.KelToCel();
-                    break;
-                }
-                else if (reply == "10")
-                {
-                    tempConv.RanToCel();
-                    break;
-                }
-                else if (reply == "11")
-                {
-                    tempConv.ReaToFar();
-                    break;
-                }
-                else if (reply == "12")
-                {
-                    tempConv.RomToCel();
-                    break;
-                }
-                else if (reply == "13")
-                {
-                    tempConv.DelToFar();
-                    break;
-                }
-                else if (reply == "14")
-                {
-                    tempConv.NewtToCel();
-                    break;
-                }
-                else if (reply == "15")
-                {
-                    tempConv.KelToFar();
-                    break;
-                }
-                else if (reply == "16")
-                {
-                    tempConv.RanToFar();
-                    break;
-                }
-                else if (reply == "17")
-                {
-                    tempConv.ReaToFar();
-                    break;
-                }
-                else if (reply == "18")
-                {
-                    tempConv.RomToFar();
-                    break;
-                }
-                else if (reply == "19")
-                {
-                    tempConv.DelToFar();
-                    break;
-                }
-                else if (reply == "20")
-                {
-                    tempConv.NewtToFar();
-                    break;
-                }
-                else if (reply == "21")
-                {
-                    tempConv.FarToKel();
-                    break;
-                }
-                else if (reply == "22")
-                {
-                    tempConv.FarToRan();
-                    break;
-                }
-                else if (reply == "23")
-                {
-                    tempConv.FarToRea();
-                    break;
-                }
-                else if (reply == "24")
-                {
-                    tempConv.FarToRom();
-                    break;
-                }
-                else if (reply == "25")
-                {
-                    tempConv.FarToDel();
-                    break;
-                }
-                else if (reply == "26")
-                {
-                    tempConv.FarToNewt();
-                    break;
-                }
-                else if (reply.ToUpper() == "EXIT")
-                {
-                    Environment.Exit(1);
-                }
-                else alerts.Alert1();
+                Logo logo = new Logo();
+                Console.Clear();
+                logo.Logotyp();
+                Menu();
+                Mechanics();
             }
         }
+        private void Mechanics()
+        {
+            TempConv tempConv = new TempConv();
+            Alerts alerts = new Alerts();
 
-        //public void Menulist(string[] list) KONCEPCJA DO POPRAWY
-        //{
-        //    string[] menulist = new string[4];
-        //    menulist[0] = "What action do you want to perform? ";
-        //    menulist[1] = " [1] Celsius to Fahrenheit";
-        //    menulist[2] = " [2] Celsius to Kelvin";
-        //    menulist[3] = " [3] Celsius to Rankine";
-            
-        //}
-        public void Menu()
+            while (true)
+            {
+                try
+                {
+                    Console.Write("Your menu choise: ");
+                    Console.WriteLine();
+                    string reply = Console.ReadLine();
+
+                    this.reply = reply;
+                    Console.WriteLine();
+                    switch (reply.ToUpper())
+                    {
+                        case "1": tempConv.CelToFar(); goto case "Continue";
+                        case "2": tempConv.CelToKel(); goto case "Continue";
+                        case "3": tempConv.CelToRan(); goto case "Continue";
+                        case "4": tempConv.CelToRea(); goto case "Continue";
+                        case "5": tempConv.CelToRom(); goto case "Continue";
+                        case "6": tempConv.CelToDel(); goto case "Continue";
+                        case "7": tempConv.CelToNewt(); goto case "Continue";
+                        case "8": tempConv.FarToCel(); goto case "Continue";
+                        case "9": tempConv.KelToCel(); goto case "Continue";
+                        case "10": tempConv.RanToCel(); goto case "Continue";
+                        case "11": tempConv.ReaToFar(); goto case "Continue";
+                        case "12": tempConv.RomToCel(); goto case "Continue";
+                        case "13": tempConv.DelToFar(); goto case "Continue";
+                        case "14": tempConv.NewtToCel(); goto case "Continue";
+                        case "15": tempConv.KelToFar(); goto case "Continue";
+                        case "16": tempConv.RanToFar(); goto case "Continue";
+                        case "17": tempConv.ReaToFar(); goto case "Continue";
+                        case "18": tempConv.RomToFar(); goto case "Continue";
+                        case "19": tempConv.DelToFar(); goto case "Continue";
+                        case "20": tempConv.NewtToFar(); goto case "Continue";
+                        case "21": tempConv.FarToKel(); goto case "Continue";
+                        case "22": tempConv.FarToRan(); goto case "Continue";
+                        case "23": tempConv.FarToRea(); goto case "Continue";
+                        case "24": tempConv.FarToRom(); goto case "Continue";
+                        case "25": tempConv.FarToDel(); goto case "Continue";
+                        case "26": tempConv.FarToNewt(); goto case "Continue";
+                        case "666": Console.WriteLine("Gratulation! U find Easter Egg"); a = 0; goto case "Continue";
+                        case "EXIT": Environment.Exit(1); break;
+                        case "Continue":
+                            Console.ResetColor();
+                            Console.BackgroundColor = ConsoleColor.Gray;
+                            Console.ForegroundColor = ConsoleColor.Black;
+                            WantContinue();                            
+                            break;
+                        default: alerts.Alert1(); break;
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine(reply);
+                    alerts.Alert();
+
+                }
+            }
+        }
+        private void Menu()
         {
             Console.ForegroundColor = ConsoleColor.Blue;
             List<string> menulist = new List<string>();
@@ -199,11 +116,8 @@ namespace Temperature_Converter
             menulist.Add(" [24] Fahrenheit to Rømer");
             menulist.Add(" [25] Fahrenheit to Delisle");
             menulist.Add(" [26] Fahrenheit to Newton");
-            menulist.Add(" [EXIT]Finish Program");            
-            foreach (string option in menulist)
-            {
-                Console.WriteLine(option);
-            }            
+            menulist.Add(" [EXIT]Finish Program");
+            foreach (string option in menulist) Console.WriteLine(option);
             Console.ResetColor();
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.Black;
@@ -213,19 +127,14 @@ namespace Temperature_Converter
         {
             while (true)
             {
+
                 Console.Write("Do you want to continue? [YES] or [EXIT]: ");
                 Console.WriteLine();
                 string reply = Console.ReadLine();
-                if (reply.ToUpper() == "YES")
-                {
-                    break;
-                }
-                else if (reply.ToUpper() == "EXIT")
-                {
-                    Environment.Exit(1);
-                }
-                Console.WriteLine();
+                if (reply.ToUpper() == "YES") Start();
+                else if (reply.ToUpper() == "EXIT") Environment.Exit(1);
             }
         }
+
     }
 }
