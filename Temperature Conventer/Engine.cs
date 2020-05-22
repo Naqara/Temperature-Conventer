@@ -5,83 +5,83 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Threading;
+using System.Security.Cryptography.X509Certificates;
+using System.Xml;
 
 namespace Temperature_Converter
 {
-    class Engine
+    class Engine : TempConv
     {
-        public static int a = 0, b = 0;
-        public string reply { get; set; }
+        private int oneChoise = 0;
+        private string reply { get; set; }
         public void Start()
         {
             while (true)
             {
-                Logo logo = new Logo();
                 Console.Clear();
-                logo.Logotyp();
+                Logotyp();
                 Menu();
                 Mechanics();
             }
         }
-        private void Mechanics()
+        private string Mechanics()
         {
-            TempConv tempConv = new TempConv();
-            Alerts alerts = new Alerts();
-
             while (true)
             {
                 try
                 {
+                    if (oneChoise != 0) { goto ContinueCatch; }
                     Console.Write("Your menu choise: ");
                     Console.WriteLine();
                     string reply = Console.ReadLine();
-
                     this.reply = reply;
+                    ContinueCatch:
                     Console.WriteLine();
-                    switch (reply.ToUpper())
+                    switch (this.reply.ToUpper())
                     {
-                        case "1": tempConv.CelToFar(); goto case "Continue";
-                        case "2": tempConv.CelToKel(); goto case "Continue";
-                        case "3": tempConv.CelToRan(); goto case "Continue";
-                        case "4": tempConv.CelToRea(); goto case "Continue";
-                        case "5": tempConv.CelToRom(); goto case "Continue";
-                        case "6": tempConv.CelToDel(); goto case "Continue";
-                        case "7": tempConv.CelToNewt(); goto case "Continue";
-                        case "8": tempConv.FarToCel(); goto case "Continue";
-                        case "9": tempConv.KelToCel(); goto case "Continue";
-                        case "10": tempConv.RanToCel(); goto case "Continue";
-                        case "11": tempConv.ReaToFar(); goto case "Continue";
-                        case "12": tempConv.RomToCel(); goto case "Continue";
-                        case "13": tempConv.DelToFar(); goto case "Continue";
-                        case "14": tempConv.NewtToCel(); goto case "Continue";
-                        case "15": tempConv.KelToFar(); goto case "Continue";
-                        case "16": tempConv.RanToFar(); goto case "Continue";
-                        case "17": tempConv.ReaToFar(); goto case "Continue";
-                        case "18": tempConv.RomToFar(); goto case "Continue";
-                        case "19": tempConv.DelToFar(); goto case "Continue";
-                        case "20": tempConv.NewtToFar(); goto case "Continue";
-                        case "21": tempConv.FarToKel(); goto case "Continue";
-                        case "22": tempConv.FarToRan(); goto case "Continue";
-                        case "23": tempConv.FarToRea(); goto case "Continue";
-                        case "24": tempConv.FarToRom(); goto case "Continue";
-                        case "25": tempConv.FarToDel(); goto case "Continue";
-                        case "26": tempConv.FarToNewt(); goto case "Continue";
-                        case "666": Console.WriteLine("Gratulation! U find Easter Egg"); a = 0; goto case "Continue";
+                        case "1": CelToFar(); goto case "Continue";
+                        case "2": CelToKel(); goto case "Continue";
+                        case "3": CelToRan(); goto case "Continue";
+                        case "4": CelToRea(); goto case "Continue";
+                        case "5": CelToRom(); goto case "Continue";
+                        case "6": CelToDel(); goto case "Continue";
+                        case "7": CelToNewt(); goto case "Continue";
+                        case "8": FarToCel(); goto case "Continue";
+                        case "9": KelToCel(); goto case "Continue";
+                        case "10": RanToCel(); goto case "Continue";
+                        case "11": ReaToFar(); goto case "Continue";
+                        case "12": RomToCel(); goto case "Continue";
+                        case "13": DelToFar(); goto case "Continue";
+                        case "14": NewtToCel(); goto case "Continue";
+                        case "15": KelToFar(); goto case "Continue";
+                        case "16": RanToFar(); goto case "Continue";
+                        case "17": ReaToFar(); goto case "Continue";
+                        case "18": RomToFar(); goto case "Continue";
+                        case "19": DelToFar(); goto case "Continue";
+                        case "20": NewtToFar(); goto case "Continue";
+                        case "21": FarToKel(); goto case "Continue";
+                        case "22": FarToRan(); goto case "Continue";
+                        case "23": FarToRea(); goto case "Continue";
+                        case "24": FarToRom(); goto case "Continue";
+                        case "25": FarToDel(); goto case "Continue";
+                        case "26": FarToNewt(); goto case "Continue";
+                        case "666": Console.WriteLine("Congratulations you found the Easter Egg"); goto case "Continue";
                         case "EXIT": Environment.Exit(1); break;
                         case "Continue":
                             Console.ResetColor();
                             Console.BackgroundColor = ConsoleColor.Gray;
                             Console.ForegroundColor = ConsoleColor.Black;
-                            WantContinue();                            
+                            oneChoise = 0;
+                            WantContinue();
                             break;
-                        default: alerts.Alert1(); break;
+                        default: Alert1(); break;
                     }
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine(reply);
-                    alerts.Alert();
-
+                    Console.WriteLine();
+                    Alert();
+                    oneChoise++;
                 }
             }
         }
@@ -123,11 +123,11 @@ namespace Temperature_Converter
             Console.ForegroundColor = ConsoleColor.Black;
             Console.WriteLine();
         }
-        protected void WantContinue()
+        private void WantContinue()
         {
             while (true)
-            {
-
+            {                
+                Console.WriteLine();
                 Console.Write("Do you want to continue? [YES] or [EXIT]: ");
                 Console.WriteLine();
                 string reply = Console.ReadLine();
@@ -135,6 +135,5 @@ namespace Temperature_Converter
                 else if (reply.ToUpper() == "EXIT") Environment.Exit(1);
             }
         }
-
     }
 }

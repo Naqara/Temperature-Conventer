@@ -8,20 +8,19 @@ using System.IO;
 
 namespace Temperature_Converter
 {
-    class Alerts : Engine
+    class Alerts : Logo
     {
-        internal void Alert()
+        protected void Alert()
         {
             Console.ResetColor();
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("This is no number!");
-            Console.WriteLine();
             Console.ResetColor();
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.Black;           
         }
-        internal virtual void Alert1()
+        protected void Alert1()
         {
             Console.ResetColor();
             Console.BackgroundColor = ConsoleColor.Gray;

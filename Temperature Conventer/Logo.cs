@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Temperature_Converter
 {
-    class Logo : Engine
+    class Logo
     {
-        internal protected virtual void Logotyp()
+        protected void Logotyp()
         {
             Console.ResetColor();
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.OutputEncoding = System.Text.Encoding.Unicode;
             Console.WriteLine("[][][][][][][][][][][][][][][][][][]");
-            Console.WriteLine("[]Temperature_Converter ver2.2beta[]");
+            Console.WriteLine("[]Temperature_Converter ver2.3beta[]");
             Console.WriteLine("[][][][][][][][][][][][][][][][][][]");
             Console.WriteLine();
             Console.ResetColor();
