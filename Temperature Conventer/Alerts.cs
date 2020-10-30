@@ -8,9 +8,9 @@ using System.IO;
 
 namespace Temperature_Converter
 {
-    class Alerts : Logo
+    class Alerts 
     {
-        protected void Alert()
+        public void Alert()
         {
             Console.ResetColor();
             Console.BackgroundColor = ConsoleColor.Gray;
@@ -20,7 +20,7 @@ namespace Temperature_Converter
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.Black;           
         }
-        protected void Alert1()
+        public void Alert1()
         {
             Console.ResetColor();
             Console.BackgroundColor = ConsoleColor.Gray;
@@ -29,7 +29,7 @@ namespace Temperature_Converter
             Console.WriteLine();
             Console.ResetColor();
             Console.BackgroundColor = ConsoleColor.Gray;
-            Console.ForegroundColor = ConsoleColor.Black;          
+            Console.ForegroundColor = ConsoleColor.Black;
         }
     }
 }

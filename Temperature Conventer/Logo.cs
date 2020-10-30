@@ -8,7 +8,7 @@ namespace Temperature_Converter
 {
     class Logo
     {
-        protected void Logotyp()
+        public void Logotyp()
         {
             Console.ResetColor();
             Console.BackgroundColor = ConsoleColor.Gray;

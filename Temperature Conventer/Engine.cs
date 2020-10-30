@@ -1,87 +1,131 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using System.Threading;
-using System.Security.Cryptography.X509Certificates;
-using System.Xml;
 
 namespace Temperature_Converter
 {
-    class Engine : TempConv
+    class Engine
     {
-        private int oneChoise = 0;
-        private string reply { get; set; }
+        private bool exit = true;
+        private int alert = 1;
+        private string selection { get; set; }
+        private double temperature = 0;
         public void Start()
         {
-            while (true)
-            {
-                Console.Clear();
-                Logotyp();
-                Menu();
-                Mechanics();
-            }
+            Logo logo = new Logo();
+            logo.Logotyp();
+            Menu();
+            Mechanics();
         }
-        private string Mechanics()
+        private void Mechanics()
         {
-            while (true)
+            Functions function = new Functions();
+            Alerts alerts = new Alerts();
+            while (exit)
             {
                 try
                 {
-                    if (oneChoise != 0) { goto ContinueCatch; }
-                    Console.Write("Your menu choise: ");
-                    Console.WriteLine();
-                    string reply = Console.ReadLine();
-                    this.reply = reply;
-                    ContinueCatch:
-                    Console.WriteLine();
-                    switch (this.reply.ToUpper())
+                    if (string.IsNullOrEmpty(selection))
                     {
-                        case "1": CelToFar(); goto case "Continue";
-                        case "2": CelToKel(); goto case "Continue";
-                        case "3": CelToRan(); goto case "Continue";
-                        case "4": CelToRea(); goto case "Continue";
-                        case "5": CelToRom(); goto case "Continue";
-                        case "6": CelToDel(); goto case "Continue";
-                        case "7": CelToNewt(); goto case "Continue";
-                        case "8": FarToCel(); goto case "Continue";
-                        case "9": KelToCel(); goto case "Continue";
-                        case "10": RanToCel(); goto case "Continue";
-                        case "11": ReaToFar(); goto case "Continue";
-                        case "12": RomToCel(); goto case "Continue";
-                        case "13": DelToFar(); goto case "Continue";
-                        case "14": NewtToCel(); goto case "Continue";
-                        case "15": KelToFar(); goto case "Continue";
-                        case "16": RanToFar(); goto case "Continue";
-                        case "17": ReaToFar(); goto case "Continue";
-                        case "18": RomToFar(); goto case "Continue";
-                        case "19": DelToFar(); goto case "Continue";
-                        case "20": NewtToFar(); goto case "Continue";
-                        case "21": FarToKel(); goto case "Continue";
-                        case "22": FarToRan(); goto case "Continue";
-                        case "23": FarToRea(); goto case "Continue";
-                        case "24": FarToRom(); goto case "Continue";
-                        case "25": FarToDel(); goto case "Continue";
-                        case "26": FarToNewt(); goto case "Continue";
-                        case "666": Console.WriteLine("Congratulations you found the Easter Egg"); goto case "Continue";
-                        case "EXIT": Environment.Exit(1); break;
-                        case "Continue":
-                            Console.ResetColor();
-                            Console.BackgroundColor = ConsoleColor.Gray;
-                            Console.ForegroundColor = ConsoleColor.Black;
-                            oneChoise = 0;
-                            WantContinue();
-                            break;
-                        default: Alert1(); break;
+                        Console.Write("Your menu choise: ");
+                        Console.WriteLine();
+                        selection = Console.ReadLine();
                     }
+                    Console.Write("Give the temperature in degrees: ");
+                    temperature = double.Parse(Console.ReadLine());
+                    Console.WriteLine();
+                    switch (selection.ToUpper())
+                    {
+                        case "1": 
+                            function.DisplayResult(function.CelsiusToFahrenheit(temperature)); 
+                            alert = 0; break;
+                        case "2": 
+                            function.DisplayResult(function.CelsiusToKelvin(temperature));
+                            alert = 0; break;
+                        case "3": 
+                            function.DisplayResult(function.CelsiusToRankine(temperature));
+                            alert = 0; break;
+                        case "4": 
+                            function.DisplayResult(function.CelsiusToReaumur(temperature));
+                            alert = 0; break;
+                        case "5":
+                           function.DisplayResult(function.CelciusToRomer(temperature));
+                            alert = 0; break;
+                        case "6":
+                            function.DisplayResult(function.CelciusToDelisle(temperature));
+                            alert = 0; break;
+                        case "7": 
+                            function.DisplayResult(function.CelciusToNewton(temperature));
+                            alert = 0; break;
+                        case "8": 
+                            function.DisplayResult(function.FahrenheitToCelsius(temperature));
+                            alert = 0; break;
+                        case "9":
+                            function.DisplayResult(function.KelvinToCelcius(temperature));
+                            alert = 0; break;
+                        case "10":
+                            function.DisplayResult(function.RankineToCelsius(temperature));
+                            alert = 0; break;
+                        case "11":
+                            function.DisplayResult(function.ReaumurToCelsius(temperature));
+                            alert = 0; break;
+                        case "12":
+                            function.DisplayResult(function.RomerToCelsius(temperature));
+                            alert = 0; break;
+                        case "13":
+                            function.DisplayResult(function.DelisleToCelsius(temperature));
+                            alert = 0; break;
+                        case "14":
+                            function.DisplayResult(function.NewtonToCelsius(temperature));
+                            alert = 0; break;
+                        case "15":
+                            function.DisplayResult(function.KelvinToFahrenheit(temperature));
+                            alert = 0; break;
+                        case "16":
+                            function.DisplayResult(function.RankineToFahrenheit(temperature));
+                            alert = 0; break;
+                        case "17":
+                            function.DisplayResult(function.ReaumurToFahrenheit(temperature));
+                            alert = 0; break;
+                        case "18":
+                            function.DisplayResult(function.RomerToFahrenheit(temperature));
+                            alert = 0; break;
+                        case "19":
+                            function.DisplayResult(function.DelisleToFahrenheit(temperature));
+                            alert = 0; break;
+                        case "20":
+                            function.DisplayResult(function.NewtonToFahrenheit(temperature));
+                            alert = 0; break;
+                        case "21":
+                            function.DisplayResult(function.FahrenheitToKelvin(temperature));
+                            alert = 0; break;
+                        case "22":
+                            function.DisplayResult(function.FahrenheitToRankine(temperature));
+                            alert = 0; break;
+                        case "23":
+                            function.DisplayResult(function.FahrenheitToReaumur(temperature));
+                            alert = 0; break;
+                        case "24":
+                            function.DisplayResult(function.FahrenheitToRomer(temperature));
+                            alert = 0; break;
+                        case "25":
+                            function.DisplayResult(function.FahrenheitToDelisle(temperature));
+                            alert = 0; break;
+                        case "26":
+                            function.DisplayResult(function.FahrenheitToNewton(temperature));
+                            alert = 0; break;
+                        case "666": Console.WriteLine("Congratulations you found the Easter Egg"); break;
+                        case "EXIT": exit = false; /*Environment.Exit(0)*/; break;
+                        default: alerts.Alert1(); alert++; selection = null; break;
+                    }
+                    Console.ResetColor();
+                    Console.BackgroundColor = ConsoleColor.Gray;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    if (alert == 0) WantContinue();
                 }
                 catch (FormatException)
                 {
                     Console.WriteLine();
-                    Alert();
-                    oneChoise++;
+                    alerts.Alert();
                 }
             }
         }
@@ -125,15 +169,12 @@ namespace Temperature_Converter
         }
         private void WantContinue()
         {
-            while (true)
-            {                
-                Console.WriteLine();
-                Console.Write("Do you want to continue? [YES] or [EXIT]: ");
-                Console.WriteLine();
-                string reply = Console.ReadLine();
-                if (reply.ToUpper() == "YES") Start();
-                else if (reply.ToUpper() == "EXIT") Environment.Exit(1);
-            }
+            Console.WriteLine();
+            Console.Write("Do you want to continue? [YES] or [EXIT]: ");
+            Console.WriteLine();
+            string response = Console.ReadLine();
+            if (response.ToUpper() == "YES") { selection = null; Menu(); } 
+            else if (response.ToUpper() == "EXIT") exit = false; //Environment.Exit(0); quick way to close the program
         }
     }
 }
