@@ -11,7 +11,7 @@ namespace Temperature_Converter
 
     class Functions 
     {
-        private string scale;
+        static public string scale;
         public virtual void DisplayResult(object function)
         {
             Console.ForegroundColor = ConsoleColor.DarkGreen;

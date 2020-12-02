@@ -14,9 +14,18 @@ namespace Temperature_Converter
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.OutputEncoding = System.Text.Encoding.Unicode;
-            Console.WriteLine("[][][][][][][][][][][][][][][][][][]");
-            Console.WriteLine("[]Temperature_Converter ver2.3beta[]");
-            Console.WriteLine("[][][][][][][][][][][][][][][][][][]");
+            string[] logo =
+            {
+@" ___                                          __                                     __     ___ ",
+@"|_ _| _   _ _  _  _  _  _  ||     _  _       / _| _   _     _  _ ||  _  _      _  _ [o )   |_ /||  _ ||  _",
+@" | | /o\|/ \ \/o\/o\/_|/o\ | ]|U|/_|/o\     ( (_ /o\|/ \\V7/o\/_|| ]/o\/_| \V7/o\/_| /(    __)\|o\/o\| ]/o\ ",
+@" |_| \( L_n_n||_/\( L| \_,]L| \_/L| \(  ___  \__|\_/L_n| V \( L| L| \( L|   V \( L| /__|() \__/|_/\( L| \_,]",
+@"              L|"
+            };
+            foreach (string row in logo)
+            {
+                Console.WriteLine(row);
+            }
             Console.WriteLine();
             Console.ResetColor();
             Console.BackgroundColor = ConsoleColor.Gray;
